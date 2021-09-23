@@ -3,6 +3,8 @@ package flowcontrol
 import (
   "fmt"
   "math"
+  "runtime"
+  "time"
 )
 
 func F0() {
@@ -57,4 +59,63 @@ func My_customize_extraction(x float64) float64 {
     fmt.Printf("i:%v z:%v\n", i, now)
   }
   return now
+}
+
+func F9_switch() {
+  fmt.Print("Go runs on ")
+  switch os := runtime.GOOS; os {
+  case "darwin":
+    fmt.Println("OS X.")
+  case "linux":
+    fmt.Println("Linux.")
+  default:
+    // freebsd, openbsd,
+    // plan9, windows...
+    fmt.Printf("%s.\n", os)
+  }
+}
+
+func F10_switch_evaluation_order() {
+  fmt.Println("When's Saturday?")
+  today := time.Now().Weekday()
+  fmt.Println("today:", today)
+  switch time.Saturday {
+  case today + 0:
+    fmt.Println("Today.")
+  case today + 1:
+    fmt.Println("Tomorrow.")
+  case today + 2:
+    fmt.Println("In two days.")
+  default:
+    fmt.Println("Too far away.")
+  }
+}
+
+func F11_switch_with_no_condition() {
+  t := time.Now()
+  fmt.Println("today:", t)
+  switch {
+  case t.Hour() < 12:
+    fmt.Println("Good morning!")
+  case t.Hour() < 17:
+    fmt.Println("Good afternoon.")
+  default:
+    fmt.Println("Good evening.")
+  }
+}
+
+// https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html
+// defer 关键字
+// 返回值 = xxx
+// 调用defer函数
+// 空的return
+func test_defer3() (r int) {
+  defer func(r int) {
+    r = r + 5
+  }(r)
+  return 1
+}
+
+func F12_defer() {
+  fmt.Println(test_defer3())
 }
