@@ -1,8 +1,6 @@
 package main
 
-import (
-  "world/methods"
-)
+import "world/concurrency"
 
 func main() {
   // flowcontrol.F0()
@@ -26,7 +24,21 @@ func main() {
   // moretypes.F22_mutating_maps()
   // moretypes.F23_map_exercise()
   // moretypes.F24_wrapper()
-  methods.F1_methods()
+  // methods.F1_methods()
+  // methods.F9_interfaces()
+  // methods.F15_type_assertions()
+  // methods.F21_readers()
+  // methods.F23_rot13Reader()
+  // methods.F24_Images()
+  // concurrency.F1_Goroutines()
+  // concurrency.F2_Channels()
+  // concurrency.F3_buffered_chan()
+  // concurrency.F4_range_close()
+  // concurrency.F5_select()
+  // concurrency.F6_default_selection()
+  // concurrency.F8_equivalent_bitree()
+  // concurrency.F9_sync_mutex()
+  concurrency.F10_web_crawler()
   // hehello.test_struct_method()
   // fmt.Println("hello world!")
   // read(write())
