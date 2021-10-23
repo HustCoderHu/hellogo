@@ -133,16 +133,24 @@ func Same(t1, t2 *tree.Tree) bool {
 		Walk(t2, c2)
 		close(c2)
 	}()
-	for {
-		v1, ok1 := <-c1
-		v2, ok2 := <-c2
-		if ok1 == ok2 && ok1 == false {
-			break
+
+	cmp := make(chan bool)
+	go func() bool {
+		for {
+			v1, ok1 := <-c1
+			v2, ok2 := <-c2
+			if ok1 == ok2 && ok1 == false {
+				break
+			}
+			if ok1 != ok2 || v1 != v2 {
+				cmp <- false
+				return false
+			}
 		}
-		if ok1 != ok2 || v1 != v2 {
-			return false
-		}
-	}
+		cmp <- true
+		return true
+	}()
+	fmt.Println("cmp:", <-cmp)
 	return true
 }
 
