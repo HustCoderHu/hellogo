@@ -1,6 +1,8 @@
 package main
 
-import "world/concurrency"
+import (
+  "hello/testlog"
+)
 
 func main() {
   // flowcontrol.F0()
@@ -38,11 +40,14 @@ func main() {
   // concurrency.F6_default_selection()
   // concurrency.F8_equivalent_bitree()
   // concurrency.F9_sync_mutex()
-  concurrency.F10_web_crawler()
+  // concurrency.F10_web_crawler()
   // hehello.test_struct_method()
   // fmt.Println("hello world!")
   // read(write())
   // test_slice_array()
   // test_map()
   // test_struct_method()
+
+  testlog.F()
+  // testlog.F()
 }

@@ -2,6 +2,7 @@ package concurrency
 
 import (
 	"fmt"
+	"log"
 	"sync"
 	"time"
 
@@ -98,12 +99,15 @@ func F6_default_selection() {
 	for {
 		select {
 		case <-tick:
-			fmt.Println("tick.")
+			// fmt.Println("tick.")
+			log.Println("tick.")
 		case <-boom:
-			fmt.Println("BOOM!")
+			log.Println("BOOM!")
+			// fmt.Println("BOOM!")
 			return
 		default:
-			fmt.Println("    .")
+			log.Println("    .")
+			// fmt.Println("    .")
 			time.Sleep(50 * time.Millisecond)
 		}
 	}
