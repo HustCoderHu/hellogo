@@ -1,6 +1,8 @@
 package main
 
 import (
+  "world/concurrency"
+  "world/methods"
   "hello/testlog"
 )
 
@@ -27,7 +29,7 @@ func main() {
   // moretypes.F23_map_exercise()
   // moretypes.F24_wrapper()
   // methods.F1_methods()
-  // methods.F9_interfaces()
+  methods.F9_interfaces()
   // methods.F15_type_assertions()
   // methods.F21_readers()
   // methods.F23_rot13Reader()
