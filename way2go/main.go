@@ -1,7 +1,7 @@
 package main
 
 import (
-	"way2go/ch12"
+	"way2go/ch14"
 
 	"github.com/sirupsen/logrus"
 )
@@ -38,5 +38,6 @@ func main() {
 	// ch12.F1_reader()
 	// ch12.F2_file_rw()
 	// ch12.F5_read_write_file1()
-	ch12.F11_os_args()
+	// ch12.F11_os_args()
+	ch14.F1_main()
 }
